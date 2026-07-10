@@ -16,7 +16,7 @@ env:
   ACR_LOGIN_SERVER: aistraining.azurecr.io
   ACR_USERNAME: ${{ secrets.ACR_USERNAME }}
   ACR_PASSWORD: ${{ secrets.ACR_PASSWORD }}
-  TAG_NAME: eshoponweb-user011
+  TAG_NAME: eshoponweb-user011webapp
   IMAGE_VERSION: 1.0.0
   AZURE_AKS_CLUSTER: aks-demo
   AZURE_RESOURCE_GROUP: ais-training
