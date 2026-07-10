@@ -1,13 +1,13 @@
 apiversion: V1
 kind: Namespace
 mmetadata:
-  name: eshoponweb-user011webapp
+  name: eshoponweb-user011
   
 
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-namespace: eshoponweb-user011webapp
+namespace: eshoponweb-user011
   name: webapp
   labels:
     app: sample-app
