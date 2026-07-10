@@ -5,8 +5,8 @@ env:
   ACR_LOGIN_SERVER: aistraining.azurecr.io
   TAG_NAME: eshoponweb-ou:1.0.0
   IMAGE_NAME: ${{ vars.ACR_LOGIN_SERVER }}/${{ vars.TAG_NAME }}
-  RESOURCE_GROUP: rg-eshop-018
-  CLUSTER_NAME: aks-eshop-018
+  RESOURCE_GROUP: rg-eshop-011
+  CLUSTER_NAME: aks-eshop-011
   
 jobs:
   build-container:
