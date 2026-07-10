@@ -11,7 +11,7 @@ jobs:
 
    steps:
      - name: checkput source code
-       uses: actions/checkout@v7.0
+       uses: actions/checkout@v7.0.0
      - name: ACR login
        user: docker/login-action@v4.4.0
        with:
