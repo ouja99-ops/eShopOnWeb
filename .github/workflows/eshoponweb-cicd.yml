@@ -1,15 +1,15 @@
 name: eShopOnWeb Build and Test
 
 #Triggers (uncomment line below to use it)
-#on: [push, workflow_dispatch]
+on: [workflow_dispatch]
 
 #Environment variables https://docs.github.com/en/actions/learn-github-actions/environment-variables
 env:
-  RESOURCE-GROUP: rg-eshoponweb-NAME
-  LOCATION: westeurope
+  RESOURCE-GROUP: rg-eshop-phanupong
+  LOCATION: southeastasia
   TEMPLATE-FILE: infra/webapp.bicep
-  SUBSCRIPTION-ID: YOUR-SUBS-ID
-  WEBAPP-NAME: eshoponweb-webapp-NAME
+  SUBSCRIPTION-ID: 06c626d1-2f07-4d7d-bea5-81ec4cb39cda
+  WEBAPP-NAME: eshoponwebwebapp-user0111
 
 jobs:
   #Build, test and publish .net web project in repository
@@ -75,6 +75,7 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
+
       # Deploy Azure WebApp using Bicep file
       - name: deploy
         uses: azure/arm-deploy@v2
@@ -101,3 +102,4 @@ jobs:
         with:
           inlineScript: |
             az webapp deploy --name ${{ env.WEBAPP-NAME }} --resource-group ${{ env.RESOURCE-GROUP }} --src-path .net-app/app.zip --type zip
+ 
