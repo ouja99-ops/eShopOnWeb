@@ -8,3 +8,5 @@ jobs:
       - javascript
     steps:
       - run: echo "Test echo in first github runner"
+      - name: Checkout
+        
