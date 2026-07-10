@@ -7,6 +7,4 @@ jobs:
       - docker
       - javascript
     steps:
-      - run: echo "Test echo in first github runner"
-      - name: Checkout
-        
+      - run: echo "Test echo in first github runner"        
