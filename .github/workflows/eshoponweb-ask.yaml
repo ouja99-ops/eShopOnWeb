@@ -5,11 +5,12 @@ env:
   ACR_LOGIN_SERVER: aistraining.azurecr.io
   TAG_NAME: eshoponweb-ou:1.0.0
   IMAGE_NAME: ${{ vars.ACR_LOGIN_SERVER }}/${{ vars.TAG_NAME }}
-  RESOURCE_GROUP: rg-eshop-011
-  CLUSTER_NAME: aks-eshop-011
+  RESOURCE_GROUP: ais-training
+  CLUSTER_NAME: aks-demo
   
 jobs:
   build-container:
+    if: false
     runs-on: ubuntu-latest
 
     steps:
@@ -34,11 +35,13 @@ jobs:
     steps:
       - name: Checkout source code
         uses: actions/checkout@v7.0.0
+        
       - uses: azure/aks-set-context@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
           resource-group: ${{ secrets.RESOURCE_GROUP }}
           cluster-name: ${{ secrets.CLUSTER_NAME }}
+          
       - uses: azure/k8s-deploy@v1
         with:
           manifests: |
