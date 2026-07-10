@@ -1,21 +1,37 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: eshoponweb-web011
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: eshoponweb-deployment
+  namespace: eshoponweb-web011
+  name: webapp
   labels:
-    app: eshoponweb
+    app: sample-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: eshoponweb
+      service: webapp
   template:
     metadata:
       labels:
-        app: eshoponweb
+        app: sample-app
+        service: webapp
     spec:
       containers:
-      - name: eshoponweb-app
-        image: aistraining.azurecr.io/eshoponwebapp-user003:1.0.0
-        ports:
-        - containerPort: 80
+        - name: webapp
+          image: aistraining.azurecr.io/eshoponwebapp-demo-017:1.0.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+              protocol: TCP
+          env:
+            - name: ASPNETCORE_URLS
+              value: http://+:80
+            - name: ASPNETCORE_ENVIRONMENT
+              value: Docker
+            - name: WebApiBaseAddress
+              value: <a href="http://webapi" rel="noreferrer noopener" title="http://webapi/" target="_blank">http://webapi</a>
